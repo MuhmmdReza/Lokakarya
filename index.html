@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Video Lokakarya KKM</title>
+
+
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+
+    body {
+
+      min-height: 100vh;
+
+      background:
+        linear-gradient(
+          135deg,
+          #0f172a,
+          #1d4ed8
+        );
+
+      color: white;
+
+    }
+
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    header {
+
+      padding: 35px 20px;
+
+      text-align: center;
+
+      background:
+        rgba(0, 0, 0, 0.25);
+
+    }
+
+
+    header h1 {
+
+      font-size: 34px;
+
+      margin-bottom: 10px;
+
+    }
+
+
+    header p {
+
+      color: #dbeafe;
+
+      font-size: 16px;
+
+    }
+
+
+    /* =========================
+       MENU UTAMA
+    ========================= */
+
+    #home {
+
+      display: block;
+
+      padding: 40px 20px;
+
+    }
+
+
+    .judul-menu {
+
+      text-align: center;
+
+      margin-bottom: 30px;
+
+    }
+
+
+    .judul-menu h2 {
+
+      font-size: 27px;
+
+      margin-bottom: 10px;
+
+    }
+
+
+    .judul-menu p {
+
+      color: #dbeafe;
+
+    }
+
+
+    /* =========================
+       GRID VIDEO
+    ========================= */
+
+    .video-grid {
+
+      max-width: 1100px;
+
+      margin: auto;
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 22px;
+
+    }
+
+
+    /* =========================
+       CARD
+    ========================= */
+
+    .card {
+
+      background: white;
+
+      color: #111827;
+
+      border-radius: 18px;
+
+      overflow: hidden;
+
+      box-shadow:
+        0 10px 25px
+        rgba(0, 0, 0, 0.3);
+
+      transition:
+        transform 0.25s,
+        box-shadow 0.25s;
+
+    }
+
+
+    .card:hover {
+
+      transform:
+        translateY(-7px);
+
+      box-shadow:
+        0 18px 35px
+        rgba(0, 0, 0, 0.4);
+
+    }
+
+
+    /* =========================
+       THUMBNAIL
+    ========================= */
+
+    .thumbnail {
+
+      height: 180px;
+
+      display: flex;
+
+      justify-content: center;
+
+      align-items: center;
+
+      background:
+        linear-gradient(
+          135deg,
+          #2563eb,
+          #60a5fa
+        );
+
+      font-size: 60px;
+
+    }
+
+
+    .card-content {
+
+      padding: 20px;
+
+    }
+
+
+    .card-content h3 {
+
+      color: #1e3a8a;
+
+      font-size: 19px;
+
+      line-height: 1.4;
+
+      margin-bottom: 17px;
+
+    }
+
+
+    /* =========================
+       BUTTON TONTON
+    ========================= */
+
+    .watch-button {
+
+      width: 100%;
+
+      padding: 13px;
+
+      border: none;
+
+      border-radius: 10px;
+
+      background: #2563eb;
+
+      color: white;
+
+      font-size: 15px;
+
+      font-weight: bold;
+
+      cursor: pointer;
+
+      transition: 0.2s;
+
+    }
+
+
+    .watch-button:hover {
+
+      background: #1d4ed8;
+
+      transform:
+        scale(1.02);
+
+    }
+
+
+    /* =========================
+       HALAMAN VIDEO
+    ========================= */
+
+    .video-page {
+
+      display: none;
+
+      padding: 40px 20px;
+
+    }
+
+
+    .video-container {
+
+      max-width: 950px;
+
+      margin: auto;
+
+      background: white;
+
+      color: #111827;
+
+      padding: 25px;
+
+      border-radius: 20px;
+
+      box-shadow:
+        0 15px 35px
+        rgba(0, 0, 0, 0.35);
+
+    }
+
+
+    .video-container h2 {
+
+      color: #1e3a8a;
+
+      margin-bottom: 8px;
+
+      font-size: 25px;
+
+    }
+
+
+    .video-container p {
+
+      color: #64748b;
+
+      margin-bottom: 20px;
+
+    }
+
+
+    video {
+
+      width: 100%;
+
+      display: block;
+
+      border-radius: 14px;
+
+      background: black;
+
+    }
+
+
+    /* =========================
+       BUTTON KEMBALI
+    ========================= */
+
+    .back-button {
+
+      width: 100%;
+
+      margin-top: 20px;
+
+      padding: 14px;
+
+      border: none;
+
+      border-radius: 10px;
+
+      background: #0f172a;
+
+      color: white;
+
+      font-size: 16px;
+
+      font-weight: bold;
+
+      cursor: pointer;
+
+      transition: 0.2s;
+
+    }
+
+
+    .back-button:hover {
+
+      background: #1e293b;
+
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+
+      text-align: center;
+
+      padding: 30px 20px;
+
+      margin-top: 20px;
+
+      color: #bfdbfe;
+
+      background:
+        rgba(0, 0, 0, 0.18);
+
+      line-height: 1.8;
+
+    }
+
+
+    footer strong {
+
+      color: white;
+
+    }
+
+
+    /* =========================
+       RESPONSIVE TABLET
+    ========================= */
+
+    @media (max-width: 850px) {
+
+      .video-grid {
+
+        grid-template-columns:
+          repeat(2, 1fr);
+
+      }
+
+    }
+
+
+    /* =========================
+       RESPONSIVE HP
+    ========================= */
+
+    @media (max-width: 550px) {
+
+      header h1 {
+
+        font-size: 26px;
+
+      }
+
+
+      header p {
+
+        font-size: 14px;
+
+      }
+
+
+      .video-grid {
+
+        grid-template-columns: 1fr;
+
+      }
+
+
+      .thumbnail {
+
+        height: 160px;
+
+      }
+
+
+      .video-container {
+
+        padding: 17px;
+
+      }
+
+
+      .video-container h2 {
+
+        font-size: 21px;
+
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <!-- =========================
+       HEADER
+  ========================= -->
+
+  <header>
+
+    <h1>
+      🎥 Video Lokakarya KKM
+    </h1>
+
+    <p>
+      Silakan pilih video kelompok
+      yang ingin ditonton
+    </p>
+
+  </header>
+
+
+
+  <!-- =========================
+       HALAMAN 1
+       MENU PILIH VIDEO
+  ========================= -->
+
+  <section id="home">
+
+
+    <div class="judul-menu">
+
+      <h2>
+        Daftar Video Lokakarya
+      </h2>
+
+      <p>
+        Pilih salah satu kelompok
+        untuk menonton video
+      </p>
+
+    </div>
+
+
+
+    <div class="video-grid">
+
+
+      <!-- =====================
+           KELOMPOK 1
+      ====================== -->
+
+      <div class="card">
+
+        <div class="thumbnail">
+          ▶️
+        </div>
+
+        <div class="card-content">
+
+          <h3>
+            Video Lokakarya KKM
+            Kelompok 1
+          </h3>
+
+          <button
+            class="watch-button"
+            onclick="bukaVideo('video1')"
+          >
+            ▶ Tonton Video
+          </button>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- =====================
+           KELOMPOK 2
+      ====================== -->
+
+      <div class="card">
+
+        <div class="thumbnail">
+          ▶️
+        </div>
+
+        <div class="card-content">
+
+          <h3>
+            Video Lokakarya KKM
+            Kelompok 2
+          </h3>
+
+          <button
+            class="watch-button"
+            onclick="bukaVideo('video2')"
+          >
+            ▶ Tonton Video
+          </button>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- =====================
+           KELOMPOK 3
+      ====================== -->
+
+      <div class="card">
+
+        <div class="thumbnail">
+          ▶️
+        </div>
+
+        <div class="card-content">
+
+          <h3>
+            Video Lokakarya KKM
+            Kelompok 3
+          </h3>
+
+          <button
+            class="watch-button"
+            onclick="bukaVideo('video3')"
+          >
+            ▶ Tonton Video
+          </button>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- =====================
+           KELOMPOK 4
+      ====================== -->
+
+      <div class="card">
+
+        <div class="thumbnail">
+          ▶️
+        </div>
+
+        <div class="card-content">
+
+          <h3>
+            Video Lokakarya KKM
+            Kelompok 4
+          </h3>
+
+          <button
+            class="watch-button"
+            onclick="bukaVideo('video4')"
+          >
+            ▶ Tonton Video
+          </button>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- =====================
+           KELOMPOK 5
+      ====================== -->
+
+      <div class="card">
+
+        <div class="thumbnail">
+          ▶️
+        </div>
+
+        <div class="card-content">
+
+          <h3>
+            Video Lokakarya KKM
+            Kelompok 5
+          </h3>
+
+          <button
+            class="watch-button"
+            onclick="bukaVideo('video5')"
+          >
+            ▶ Tonton Video
+          </button>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- =====================
+           KELOMPOK 6
+      ====================== -->
+
+      <div class="card">
+
+        <div class="thumbnail">
+          ▶️
+        </div>
+
+        <div class="card-content">
+
+          <h3>
+            Video Lokakarya KKM
+            Kelompok 6
+          </h3>
+
+          <button
+            class="watch-button"
+            onclick="bukaVideo('video6')"
+          >
+            ▶ Tonton Video
+          </button>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================
+       VIDEO KELOMPOK 1
+  ========================= -->
+
+  <section
+    class="video-page"
+    id="video1"
+  >
+
+    <div class="video-container">
+
+      <h2>
+        Video Lokakarya KKM
+        Kelompok 1
+      </h2>
+
+      <p>
+        Video presentasi Lokakarya
+        KKM Kelompok 1
+      </p>
+
+
+      <video controls>
+
+        <source
+          src="video/kelompok1.mp4"
+          type="video/mp4"
+        >
+
+        Browser kamu tidak
+        mendukung video.
+
+      </video>
+
+
+      <button
+        class="back-button"
+        onclick="kembaliKeMenu()"
+      >
+        🎬 Kembali ke Daftar Video
+      </button>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================
+       VIDEO KELOMPOK 2
+  ========================= -->
+
+  <section
+    class="video-page"
+    id="video2"
+  >
+
+    <div class="video-container">
+
+      <h2>
+        Video Lokakarya KKM
+        Kelompok 2
+      </h2>
+
+      <p>
+        Video presentasi Lokakarya
+        KKM Kelompok 2
+      </p>
+
+
+      <video controls>
+
+        <source
+          src="video/kelompok2.mp4"
+          type="video/mp4"
+        >
+
+        Browser kamu tidak
+        mendukung video.
+
+      </video>
+
+
+      <button
+        class="back-button"
+        onclick="kembaliKeMenu()"
+      >
+        🎬 Kembali ke Daftar Video
+      </button>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================
+       VIDEO KELOMPOK 3
+  ========================= -->
+
+  <section
+    class="video-page"
+    id="video3"
+  >
+
+    <div class="video-container">
+
+      <h2>
+        Video Lokakarya KKM
+        Kelompok 3
+      </h2>
+
+      <p>
+        Video presentasi Lokakarya
+        KKM Kelompok 3
+      </p>
+
+
+      <video controls>
+
+        <source
+          src="video/kelompok3.mp4"
+          type="video/mp4"
+        >
+
+        Browser kamu tidak
+        mendukung video.
+
+      </video>
+
+
+      <button
+        class="back-button"
+        onclick="kembaliKeMenu()"
+      >
+        🎬 Kembali ke Daftar Video
+      </button>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================
+       VIDEO KELOMPOK 4
+  ========================= -->
+
+  <section
+    class="video-page"
+    id="video4"
+  >
+
+    <div class="video-container">
+
+      <h2>
+        Video Lokakarya KKM
+        Kelompok 4
+      </h2>
+
+      <p>
+        Video presentasi Lokakarya
+        KKM Kelompok 4
+      </p>
+
+
+      <video controls>
+
+        <source
+          src="video/kelompok4.mp4"
+          type="video/mp4"
+        >
+
+        Browser kamu tidak
+        mendukung video.
+
+      </video>
+
+
+      <button
+        class="back-button"
+        onclick="kembaliKeMenu()"
+      >
+        🎬 Kembali ke Daftar Video
+      </button>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================
+       VIDEO KELOMPOK 5
+  ========================= -->
+
+  <section
+    class="video-page"
+    id="video5"
+  >
+
+    <div class="video-container">
+
+      <h2>
+        Video Lokakarya KKM
+        Kelompok 5
+      </h2>
+
+      <p>
+        Video presentasi Lokakarya
+        KKM Kelompok 5
+      </p>
+
+
+      <video controls>
+
+        <source
+          src="video/kelompok5.mp4"
+          type="video/mp4"
+        >
+
+        Browser kamu tidak
+        mendukung video.
+
+      </video>
+
+
+      <button
+        class="back-button"
+        onclick="kembaliKeMenu()"
+      >
+        🎬 Kembali ke Daftar Video
+      </button>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================
+       VIDEO KELOMPOK 6
+  ========================= -->
+
+  <section
+    class="video-page"
+    id="video6"
+  >
+
+    <div class="video-container">
+
+      <h2>
+        Video Lokakarya KKM
+        Kelompok 6
+      </h2>
+
+      <p>
+        Video presentasi Lokakarya
+        KKM Kelompok 6
+      </p>
+
+
+      <video controls>
+
+        <source
+          src="video/kelompok6.mp4"
+          type="video/mp4"
+        >
+
+        Browser kamu tidak
+        mendukung video.
+
+      </video>
+
+
+      <button
+        class="back-button"
+        onclick="kembaliKeMenu()"
+      >
+        🎬 Kembali ke Daftar Video
+      </button>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
+  <footer>
+
+    <p>
+      © 2026 Video Lokakarya KKM
+    </p>
+
+    <p>
+      Dibuat oleh
+      <strong>
+        M. Reza Fahlevi
+      </strong>
+    </p>
+
+  </footer>
+
+
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================= -->
+
+  <script>
+
+
+    function bukaVideo(id) {
+
+
+      // Sembunyikan menu utama
+
+      document.getElementById(
+        "home"
+      ).style.display = "none";
+
+
+      // Sembunyikan semua halaman video
+
+      const semuaVideo =
+        document.querySelectorAll(
+          ".video-page"
+        );
+
+
+      semuaVideo.forEach(
+        function(page) {
+
+          page.style.display =
+            "none";
+
+        }
+      );
+
+
+      // Tampilkan video yang dipilih
+
+      document.getElementById(
+        id
+      ).style.display = "block";
+
+
+      // Kembali ke posisi paling atas
+
+      window.scrollTo({
+
+        top: 0,
+
+        behavior: "smooth"
+
+      });
+
+    }
+
+
+
+    function kembaliKeMenu() {
+
+
+      // Sembunyikan semua video
+
+      const semuaVideo =
+        document.querySelectorAll(
+          ".video-page"
+        );
+
+
+      semuaVideo.forEach(
+        function(page) {
+
+          page.style.display =
+            "none";
+
+
+          // Hentikan video
+          // ketika kembali ke menu
+
+          const video =
+            page.querySelector(
+              "video"
+            );
+
+
+          if (video) {
+
+            video.pause();
+
+            video.currentTime = 0;
+
+          }
+
+        }
+      );
+
+
+      // Tampilkan kembali menu
+
+      document.getElementById(
+        "home"
+      ).style.display = "block";
+
+
+      // Kembali ke atas
+
+      window.scrollTo({
+
+        top: 0,
+
+        behavior: "smooth"
+
+      });
+
+    }
+
+
+  </script>
+
+
+</body>
+
+</html>
